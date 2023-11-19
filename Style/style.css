@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+  font-family: 'Quicksand', sans-serif;
+}
+
+body {
+  background: #fff;
+  position: relative;
+}
+
+.screen{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#play,
+#enter {
+  border: 2px solid #000;
+  border-radius: 1.3rem;
+}
+
+
+/* player detail */
+.welcom-heading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    font-size: 2rem;
+}
+.play-det{
+    height: 320px;
+    width: 320px;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.player-name{
+    background: #14bdac;
+    margin: 2rem 0;
+    /* height: 5rem; */
+    border-radius: 10rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+.player-input{
+    height: 100%;
+    padding: 2rem 1.5rem;
+    font-size: 1.8rem;
+    flex: 8;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+.player-input::placeholder{
+    color: #fff;
+    font-size: 1.8rem;
+}
+.player-name>i{
+    /* width: 20%; */
+    margin-right: 2rem;
+}
+
+.start-btn{
+    background: #000;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10rem;
+    font-size: 2rem;
+    padding: 1.8rem 2.8rem;
+    margin:  2rem 0;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+
+.start-btn:hover{
+    scale: 1.1;
+}
+
+.start-btn>i{
+    margin-left: 2rem;
+}
+
+
+/* ---------------------------------------------------- */
+/* #play{
+    display: none;
+} */
+
+.players {
+  background: #000;
+  color: #fff;
+  height: 8vh;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #14bdac;
+  animation: growAnimation 0.6s ease-out;
+  margin: 2rem;
+  /* border-radius: 50%; */
+}
+
+.square-box {
+  width: 500px;
+  height: 500px;
+  background-color: #3498db;
+}
+
+@keyframes growAnimation {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  margin: 0px 10px 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cell:last-child {
+  /* background: green; */
+  margin-bottom: 0;
+}
+
+.row:last-child > .cell {
+  margin-right: 0;
+}
+
+/* X/O CSS */
+.cellxo {
+  font-size: 4rem;
+  display: inline;
+}
+
+
+.turnxo{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+
+
+/* ------------------- */
+.play-status{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+
+.play-status>p{
+    font-size: 2rem;
+}
+
+/* winner section */
+.winner-name{
+    background:#e8b923 ;
+    width: 100%;
+}
+
+
+
+
+
+/* animation on X annd O */
+/* Define the animation */
+@keyframes growShrink {
+  0% {
+      transform: scale(1);
+  }
+  50% {
+      transform: scale(1.2);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+/* Apply the animation to the character inside the div */
+.animated-character {
+  display: inline-block; /* Ensures that the div only takes the necessary width */
+  animation: growShrink 2s infinite; /* 2s duration, infinite loop */
+}
+
+
+
+/* page movement */
+
+#playpage{
+  display:none;
+}
+#resultpage{
+  display:none;
+}
+
