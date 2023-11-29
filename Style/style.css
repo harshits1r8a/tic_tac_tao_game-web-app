@@ -24,6 +24,8 @@ body {
   align-items: center;
   height: 100vh;
   width: 100%;
+  padding: 2rem;
+  margin: 2rem;
 }
 
 #play,
@@ -223,25 +225,7 @@ body {
 
 
 
-/* animation on X annd O */
-/* Define the animation */
-@keyframes growShrink {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.2);
-  }
-  100% {
-      transform: scale(1);
-  }
-}
 
-/* Apply the animation to the character inside the div */
-.animated-character {
-  display: inline-block; /* Ensures that the div only takes the necessary width */
-  animation: growShrink 2s infinite; /* 2s duration, infinite loop */
-}
 
 
 
