@@ -1,7 +1,10 @@
 // Required Variables
 let playGame = true;
 let cnt = 0
-let widraw = 0
+let draw = 0
+let scoreX = 0
+let scoreO = 0
+// let round = 0
 
 
 
@@ -13,8 +16,8 @@ const x = `<i class="turnxo fa-solid fa-x"></i>`
 
 // Game play screen
 const turn = document.querySelector('.turn')
-const round = document.querySelector('.round')
-const cells = document.querySelectorAll('.cell')
+let round = document.querySelector('.round')
+let cells = document.querySelectorAll('.cell')
 
 // state symbole
 
@@ -31,20 +34,24 @@ function winningCond() {
         cells[i].style.color = 'red'
         cells[j].style.color = 'red'
         cells[k].style.color = 'red'
-        // let a = cells[i].innerHTML
-        // a.classList.add('animated-character')
-        // let b = cells[j]
-        // b.classList.add('animated-character')
-        // let c = cells[k]
-        // c.classList.add('animated-character')
         ++round.innerHTML
         const winElement = cells[i].innerHTML
-        const winner = (winElement === O)? 'Circle' : 'Cross'
-        console.log(winner);
+        const winner = (winElement === O) ? 'Circle' : 'Cross'
+        // score updating
+        if (winner === 'Circle') {
+            scoreO++
+            // console.log(scoreO);
+        }
+        if (winner === 'Cross') {
+            scoreX++
+            // console.log(scoreX);
+        }
+
+        // console.log(winner);
         playGame = false;
         setTimeout(() => {
             resetGame()
-        }, 2000)
+        }, 1500)
     }
 
     // Column Condition
@@ -91,27 +98,30 @@ function winningCond() {
 
 }
 
+function getName(){
+    const player_o = document.getElementById('player-o')
+    const player_x = document.getElementById('player-x')
+    return  [player_o,player_x]
+}
+
+
+function removeName(){
+    document.getElementById('player-o').value = ''
+    document.getElementById('player-x').value = ''
+}
+
 
 
 // Start Game
 function startgame() {
     playGame = true;
-
-    const player_o = document.getElementById('player-o').value
-    const player_x = document.getElementById('player-x').value
-
-    let Xscore = 0
-    let Oscore = 0
-
-
     let state = true
-
 
     cells.forEach((elm) => {
         elm.addEventListener('click', (e) => {
 
             // error for double click
-            if (elm.innerHTML.trim() !== '') {
+            if (elm.innerHTML.trim() !=='') {
                 elm.style.color = 'red'
                 let wrong = new Audio('./audio/beep.mp3')
                 wrong.play()
@@ -132,10 +142,11 @@ function startgame() {
                         winningCond()
                         cnt++
                         if (cnt >= 9) {
-                            widraw++
+                            ++round.innerHTML
+                            draw++
                             setTimeout(() => {
                                 resetGame()
-                            }, 2000)
+                            }, 1000)
                         }
                     } else {
                         elm.innerHTML = `${X}`
@@ -146,10 +157,11 @@ function startgame() {
                         winningCond()
                         cnt++
                         if (cnt >= 9) {
-                            widraw++
+                            ++round.innerHTML
+                            draw++
                             setTimeout(() => {
                                 resetGame()
-                            }, 2000)
+                            }, 1000)
                         }
                     }
                 }
@@ -164,12 +176,53 @@ function resetGame() {
     playGame = true
     cnt = 0
     cells.forEach((elm) => {
-        elm.textContent = '';
+        elm.innerHTML = '';
         elm.style.color = 'inherit'
     })
 }
 
-function resultgame(name, totalround, winscore) {
+// function resetFullGame(){
+//     playGame = true
+//     cnt = 0
+//     draw = 0
+//     scoreO = 0
+//     scoreX = 0
+//     round.innerHTML = 0
+//     console.log(cells);
+//     cells.forEach((elm) => {
+//         elm.innerHTML = '';
+//         elm.style.color = 'inherit'
+//     })
+//     console.log(cells);
+// }
+
+function resultgame() {
+    document.querySelector('.r').innerHTML = round.innerHTML
+    document.querySelector('.d').innerHTML = draw
+    document.querySelector('.x').innerHTML = scoreX
+    document.querySelector('.o').innerHTML = scoreO
+    
+    
+    
+    const playerArr = getName()
+    
+    
+    if (scoreX > scoreO) {
+        document.querySelector('.win-person').innerHTML = playerArr[1].value
+        document.querySelector('.win-logo').innerHTML = x
+    }
+    if (scoreX < scoreO) {
+        document.querySelector('.win-person').innerHTML = playerArr[0].value
+        // document.querySelector('.win-person').innerHTML = player_o
+        document.querySelector('.win-logo').innerHTML = o
+    }
+    if (scoreX == scoreO) {
+        document.querySelector('.win-person').innerHTML = "DRAW!"
+        document.querySelector('.win-person').style.fontSize = '2rem'
+        document.querySelector('.win-person').style.textAlign = 'center'
+        document.querySelector('.win-person').style.fontWeight = "600"
+    }
+    
 
 }
 
@@ -186,31 +239,31 @@ const restart = document.getElementById('restart')
 
 const start_btn = document.querySelector('.start-btn')
 start_btn.addEventListener('click', (e) => {
-    // const player_o = document.getElementById('player-o').value
-    // const player_x = document.getElementById('player-x').value
-    // if (!player_x || !player_o) {
-    //     alert("Enter player name")
-    // } else {
-    //     startgame()
-    //     enterpage.style.display = 'none'
-    //     playpage.style.display = 'flex'
-    // }
-
-    startgame()
-    enterpage.style.display = 'none'
-    playpage.style.display = 'flex'
+    // resetGame()
+     const playerArr = getName()
+    if (!playerArr[0].value || !playerArr[1].value) {
+        alert("Enter player name")
+        return
+    }else {
+        startgame()
+        enterpage.style.display = 'none'
+        playpage.style.display = 'flex'
+    }
 
 })
 
 finishgame.addEventListener('click', (e) => {
-    console.log(round.innerHTML);
+    resultgame()
     playpage.style.display = 'none'
     resultpage.style.display = 'flex'
 
 })
 
 restart.addEventListener('click', (e) => {
+    // resetGame()
+    // resetFullGame()
+    removeName()
     resultpage.style.display = 'none'
     enterpage.style.display = 'flex'
-
+    window. location. reload()
 })
