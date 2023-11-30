@@ -18,7 +18,7 @@ https://github.com/harshits1r8a/Tic-Tac-Tao-game-web-app/assets/91357996/f1d3e5d
 A live version of this survey app can be found https://harshits1r8a.github.io/Tic-Tac-Tao-game-web-app/
 
 ## GitHub Link
-GitHub repository link https:[//github.com/harshits1r8a/Survey-web-app](https://github.com/harshits1r8a/Tic-Tac-Tao-game-web-app)
+GitHub repository link https: https://github.com/harshits1r8a/Tic-Tac-Tao-game-web-app
 
 
 ## Features
