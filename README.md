@@ -1,4 +1,4 @@
-![image](https://github.com/harshits1r8a/tic_tac_tao_game-web-app/assets/91357996/994f0f41-6781-4d1f-9bc9-36198abfe7c4)﻿# Tic-tac-toe Game
+﻿# Tic-tac-toe Game
 
 ## Overview
 
@@ -19,7 +19,7 @@ This project is a classic Tic-tac-toe game implemented using HTML, CSS, and Java
 
 
 ## Working Link
-- [Demo}(https://harshits1r8a.github.io/tic_tac_tao_game-web-app/)
+- [Demo](https://harshits1r8a.github.io/tic_tac_tao_game-web-app/)
 
 
 
