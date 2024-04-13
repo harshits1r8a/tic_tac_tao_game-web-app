@@ -1,4 +1,4 @@
-﻿# Tic-tac-toe Game
+![image](https://github.com/harshits1r8a/tic_tac_tao_game-web-app/assets/91357996/994f0f41-6781-4d1f-9bc9-36198abfe7c4)﻿# Tic-tac-toe Game
 
 ## Overview
 
@@ -9,16 +9,19 @@ This project is a classic Tic-tac-toe game implemented using HTML, CSS, and Java
 3. **Result Screen:** Displays whether the game ended in a draw, the number of rounds played, and the winner of the game.
 
 ## Screenshot
+![image](https://github.com/harshits1r8a/tic_tac_tao_game-web-app/assets/91357996/b87b8d3b-c925-48bc-851d-437f661eb940)
+![image](https://github.com/harshits1r8a/tic_tac_tao_game-web-app/assets/91357996/a18c717b-e64d-44ac-af7c-b4a060a0177f)
+![image](https://github.com/harshits1r8a/tic_tac_tao_game-web-app/assets/91357996/93d87944-ac57-4b95-a54e-0d9f08546cb0)
 
 
-https://github.com/harshits1r8a/Tic-Tac-Tao-game-web-app/assets/91357996/f1d3e5d2-1045-4ca1-a091-cd57a67cddb4
+
+
 
 
 ## Working Link
-A live version of this survey app can be found https://harshits1r8a.github.io/Tic-Tac-Tao-game-web-app/
+- [Demo}(https://harshits1r8a.github.io/tic_tac_tao_game-web-app/)
 
-## GitHub Link
-GitHub repository link https: https://github.com/harshits1r8a/Tic-Tac-Tao-game-web-app
+
 
 
 ## Features
